@@ -18,10 +18,14 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
-class articleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin,
-                     mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
+class articleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+
+# class articleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin,
+#                      mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
+#     serializer_class = ArticleSerializer
+#     queryset = Article.objects.all()
 
     # def list(self, request):
     #     articles = Article.objects.all()
